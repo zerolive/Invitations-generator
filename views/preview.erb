@@ -1,0 +1,24 @@
+<center>Save the url if you want to use this invitation again</center>
+<center><a href="http://localhost:9393/<%= @template %>/<%= @owner %>/<%= @event %>/<%= @place %>/<%= @date %>"><%= "http://localhost:9393/" + @template + "/" + @owner + "/" + @event + "/" + @place + "/" + @date %></a></center>
+<hr>
+<center>
+<table style="background-image:url('/img/<%= @template %>.jpg')" width="500" height="275">
+	<tr>
+		<td>
+			<center>
+	  		<h1><%= @owner + " invites you to "%></h1>
+	  		<h1><%= @event %></h1>
+	  		<h2><%= "The party will be in " + @place %></h2>
+	  		<h2><%= "at " + @date %></h2>
+	  		</center>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td>
+			<span><a href="/<%= @template %>/<%= @owner %>/<%= @event %>/<%= @place %>/<%= @date %>/edit">[Edit]</a></span>
+		</td>
+	</tr>
+</table>
+</center>
