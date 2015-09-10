@@ -1,7 +1,7 @@
 <section id="add">
 <center>
   <form action="/" method="post" id="home">
-  	<table style="background-image:url('/img/work.jpg')" width="500" height="275">
+  	<table width="500" height="275">
   		<tr>
   			<td>Organizer name : </td>
 	    	<td><textarea name="owner" rows="1" cols="25" placeholder="eg: Antonio&hellip;" required></textarea></td>
@@ -22,11 +22,9 @@
 	    		<label>Chose theme</label>
 	    	</td>
 	    	<td>
-	    	    <select name="template" id="select">
-     				<option value="surprise">Surprise</option>
-     				<option value="work">Work</option>
-     				<option value="test">Test</option>
-     			</select>
+	    		<select name="template" id="select">
+	    			<%= @selectmaker %>
+	    		</select>
 	    	</td>
 	    </tr>
 	    <table>
