@@ -51,5 +51,7 @@ end
 
 not_found do
 	@title = 'Create your own invitation'
+	@selectmaker = createoption.makeselectoptions
+	@sampleimg = createimgsamples.createtable
     erb :home
 end
