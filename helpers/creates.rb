@@ -5,12 +5,12 @@ class CreateSelect
 			x.slice!("./public/img/")
 			x.slice!(".jpg")
 		end
-		selectoption = ""
+		htmlcode = ""
 		filename.each do |x|
-			selectoption = selectoption + "<option value=\"#{x}\">#{x.capitalize}</option>"
+			htmlcode = htmlcode + "<option value=\"#{x}\">#{x.capitalize}</option>"
 		end
-		selectoption = "<select name=\"template\" id=\"select\">" + selectoption + "</select>"
-		return selectoption
+		htmlcode = "<select name=\"template\" id=\"select\">" + htmlcode + "</select>"
+		return htmlcode
 	end
 end
 
