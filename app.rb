@@ -1,6 +1,4 @@
 require 'sinatra'
-require 'rubygems'
-require 'nokogiri'
 
 class CreateSelect
 	def makeselectoptions 
