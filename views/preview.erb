@@ -6,10 +6,12 @@
 	<tr>
 		<td>
 			<center>
-	  		<h1><%= @owner + " invites you to "%></h1>
-	  		<h1><%= @event %></h1>
-	  		<h2><%= "The party will be in " + @place %></h2>
-	  		<h2><%= "at " + @date %></h2>
+	  		<h1 class="invit"><%= @owner %></h1>
+	  		<h2 class="invit">invites you to</h2>
+	  		<h1 class="invit"><%= @event %></h1>
+	  		<h2 class="invit">The party will be in</h2>
+	  		<h1 class="invit"><%= @place %></h1>
+	  		<h2 class="invit">at</h2><h1 class="invit"><%= @date %></h1>
 	  		</center>
 		</td>
 	</tr>
