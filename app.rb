@@ -1,17 +1,10 @@
 require 'sinatra'
 require './helpers/creates.rb'
 
-createoption = CreateSelect.new
-createimgsamples = CreatePreview.new
-
-#host heroku "https://boiling-wildwood-6801.herokuapp.com"
-#host local "http://localhost:9393"
-host = "https://boiling-wildwood-6801.herokuapp.com"
-
 get '/' do
   @title = 'Create your own invitation'
-  @selectmaker = createoption.makeselectoptions
-  @sampleimg = createimgsamples.createtable
+  @selectmaker = CreateSelect.make_select_options
+  @sampleimg = CreatePreview.create_table
   erb :home
 end
 
@@ -22,7 +15,7 @@ post '/' do
 	@place = params[:place]
 	@date = params[:date]
 	@template = params[:template]
-	@link = host
+	@base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
     erb :preview
 end
 
@@ -33,7 +26,7 @@ get '/:template/:owner/:event/:place/:date' do
 	@place = params[:place]
 	@date = params[:date]
     @template = params[:template]
-    @link = host
+    @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
 	erb :preview
 end
 
@@ -44,14 +37,14 @@ get '/:template/:owner/:event/:place/:date/edit' do
 	@place = params[:place]
 	@date = params[:date]
     @template = params[:template]
-    @selectmaker = createoption.makeselectoptions
-    @sampleimg = createimgsamples.createtable
+    @selectmaker = CreateSelect.make_select_options
+    @sampleimg = CreatePreview.create_table
 	erb :edit
 end
 
 not_found do
 	@title = 'Create your own invitation'
-	@selectmaker = createoption.makeselectoptions
-	@sampleimg = createimgsamples.createtable
+	@selectmaker = CreateSelect.make_select_options
+	@sampleimg = CreatePreview.create_table
     erb :home
 end
