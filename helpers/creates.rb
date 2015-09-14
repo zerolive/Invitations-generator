@@ -20,7 +20,7 @@ class CreateSelect
 			htmlcode = htmlcode + "<option value=\"#{name}\">#{name.capitalize}</option>"
 		end
 		htmlcode = "<select name=\"template\" id=\"select\">" + htmlcode + "</select>"
-		htmlcode
+		return htmlcode
 	end
 end
 
@@ -30,12 +30,14 @@ class CreatePreview
 		urlsnames = generate_urls_names
 
 		htmlcode = "<center><table class=\"\"><tr>"
+		columns = 0
 		filesnames.each do |name|
-			htmlcode = htmlcode + "<td align=\"center\">#{name.capitalize}</td>"
-		end
-		htmlcode = htmlcode + "</tr><tr>"
-		urlsnames.each do |x|
-			htmlcode = htmlcode + "<td><img src=\"#{x}\" width=\"100\" height=\"50\" ></td>"
+			htmlcode = htmlcode + "<td align=\"center\"><p>#{name.capitalize}</p><p><img src=\"img/#{name}.jpg\" width=\"100\" height=\"50\" ></p></td>"
+			columns += 1
+			if columns == 3
+				htmlcode = htmlcode + "</tr><tr>"
+				columns = 0
+			end
 		end
 		htmlcode = htmlcode + "</tr></table></center>"
 
