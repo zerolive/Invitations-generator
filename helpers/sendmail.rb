@@ -23,7 +23,6 @@ class EmailSend
 					<tr>
 						<td>
 							<center>
-							<h2>' + templateurl.to_s + '</h2>
 							<h1>' + owner.to_s + '</h1>
 							<h2>invites you to</h2>
 							<h1>' + event.to_s + '</h1>
